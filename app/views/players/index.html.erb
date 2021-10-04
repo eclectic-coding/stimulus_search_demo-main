@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Players</h1>
+<div data-controller="live-search">
+  <%= render partial: "shared/search_form" %>
+  <div data-target="live-search.results">
+    <% @players.each do |player| %>
+      <%= render partial: "player", locals: { player: player } %>
+    <% end %>
+    <%= @players.count %>
+  </div>
+  <%= will_paginate @posts %>
+
+  <%= @players.count %>
+
+</div>
+
+<br>
+
+<%= link_to 'New Player', new_player_path %>
